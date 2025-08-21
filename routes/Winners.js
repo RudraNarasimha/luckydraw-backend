@@ -1,6 +1,6 @@
 import { Router } from "express";
-import Winner from "models/Winner.js";
-import Participant from "models/Participant.js";
+import Winner from "/models/Winner.js";
+import Participant from "/models/Participant.js";
 
 const router = Router();
 
@@ -83,4 +83,5 @@ function mapWinner(w) {
 }
 
 export default router;
+
 
