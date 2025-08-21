@@ -5,8 +5,8 @@ import morgan from "morgan";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 
-import participantsRouter from "/routes/participants.js";
-import winnersRouter from "/routes/winners.js";
+import participantsRouter from "./participants.js";
+import winnersRouter from "./winners.js";
 
 dotenv.config();
 
@@ -53,5 +53,6 @@ mongoose
     console.error("MongoDB connection error:", err);
     process.exit(1);
   });
+
 
 
