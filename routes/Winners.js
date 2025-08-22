@@ -4,7 +4,6 @@ import Participant from "../models/Participant.js";
 
 const router = Router();
 
-// GET all winners
 router.get("/", async (req, res) => {
   try {
     const { year = "" } = req.query;
@@ -17,13 +16,10 @@ router.get("/", async (req, res) => {
   }
 });
 
-// CREATE
 router.post("/", async (req, res) => {
   try {
     const { participantId, prize, year } = req.body ?? {};
-    if (!participantId || !prize || !year) {
-      return res.status(400).json({ error: "Missing fields" });
-    }
+    if (!participantId || !prize || !year) return res.status(400).json({ error: "Missing fields" });
     const participant = await Participant.findById(participantId);
     if (!participant) return res.status(404).json({ error: "Participant not found" });
 
@@ -34,7 +30,6 @@ router.post("/", async (req, res) => {
   }
 });
 
-// DELETE
 router.delete("/:id", async (req, res) => {
   try {
     const deleted = await Winner.findByIdAndDelete(req.params.id);
